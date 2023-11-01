@@ -279,8 +279,8 @@ public class MainApplication {
 
     public static void arrFillPlus(int b4, int[] arrb4) { // Метод №4 "Заполнение массива арифметической прогрессией"
         int a = arrb4.length;
-        for (int i = 0; i < a; i++) {
-            arrb4[i] += b4;
+//        for (int i = 0; i < a; i++) {
+//            arrb4[i] += b4;
         for (int i = 0; i < a - 1; i++) {
             arrb4[i + 1] = arrb4[i] + b4;
         }
