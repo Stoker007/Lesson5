@@ -252,7 +252,7 @@ public class MainApplication {
                 System.out.println(index + 1);
                 break;
             }
-            if (i == a-2) System.out.println("Такой точки не найдено");
+            if (i == a - 2) System.out.println("Такой точки не найдено");
         }
     }
 
@@ -305,20 +305,17 @@ public class MainApplication {
     public static void sumArrays(int[] arra6, int[] arrb6, int[] arrc6) { // Метод №6 "Сложение массивов"
 
         int[] maxLenght = {arra6.length, arrb6.length, arrc6.length};
-        for (int i = 0; i < 3; i++) {// сортировка по возрастанию для поиска самого длинного массива
-            for (int j = 0; j < 2; j++) {
-                if (maxLenght[j + 1] < maxLenght[j]) {
-                    int exchange = maxLenght[j];
-                    maxLenght[j] = maxLenght[j + 1];
-                    maxLenght[j + 1] = exchange;
-                }
+        int max = maxLenght[0];
+        for (int i = 1; i < 3; i++) {// поиск самого длинного массива
+            if (maxLenght[i] > max) {
+                max = maxLenght[i];
             }
         }
 
         int a = arra6.length;// можно было передать длину массивов как аргумент, но в условиях задачи этого не было
         int b = arrb6.length;
         int c = arrc6.length;
-        int[] sumArr = new int[maxLenght[2]];
+        int[] sumArr = new int[max];
 
         for (int i = 0; i < a; i++) {
             sumArr[i] = sumArr[i] + arra6[i];
