@@ -2,7 +2,6 @@ package HomeWork2;
 
 import java.util.Arrays;
 import java.util.Scanner;
-//import java.lang.Math;
 
 public class MainApplication {
     public static void main(String[] args) {
@@ -190,29 +189,28 @@ public class MainApplication {
                     System.out.print("Массив: ");
                     System.out.print(Arrays.toString(arr8));
                     System.out.println(" не отсортирован по возрастанию");
-                    break;
+                    return;
                 }
-                if (i == a - 2) {
-                    System.out.print("Массив: ");
-                    System.out.print(Arrays.toString(arr8));
-                    System.out.println(" отсортирован по возрастанию");
-                }
+
             }
+            System.out.print("Массив: ");
+            System.out.print(Arrays.toString(arr8));
+            System.out.println(" отсортирован по возрастанию");
         }
+
         if (result == 2) {
             for (int i = 0; i < a - 1; i++) {
                 if (arr8[i + 1] > arr8[i]) {
                     System.out.print("Массив: ");
                     System.out.print(Arrays.toString(arr8));
                     System.out.println(" не отсортирован по убыванию");
-                    break;
+                    return;
                 }
-                if (i == a - 2) {
-                    System.out.print("Массив: ");
-                    System.out.print(Arrays.toString(arr8));
-                    System.out.println(" отсортирован по убыванию");
-                }
+
             }
+            System.out.print("Массив: ");
+            System.out.print(Arrays.toString(arr8));
+            System.out.println(" отсортирован по убыванию");
         }
 
 
@@ -234,26 +232,22 @@ public class MainApplication {
     private static void indexArr(int arr[]) {// Метод №7 "Поиск точки равновесия массива"
         int a = arr.length;
         System.out.println(Arrays.toString(arr));
-        int index = -1;
 
-        for (int i = 0; i < a - 1; i++) {
-            int sum1 = 0;
-            int sum2 = 0;
-            for (int j = 0; j <= i; j++) {
-                sum1 = sum1 + arr[j];
-            }
-            for (int k = i + 1; k < a; k++) {
-                sum2 = sum2 + arr[k];
-            }
-
-            if (sum1 == sum2) {
-                index = i;
-                System.out.print("Точка находится между элементами №" + index + " и ");
-                System.out.println(index + 1);
-                break;
-            }
-            if (i == a - 2) System.out.println("Такой точки не найдено");
+        int sum = 0;
+        for (int i = 0; i < a; i++) {
+            sum = sum + arr[i];
         }
+        int sum1 = 0;
+        for (int i = 0; i < a - 1; i++) {
+            sum1 = sum1 + arr[i];
+            if (sum1 == sum / 2) {
+                System.out.print("Точка находится между элементами №" + i + " и ");
+                System.out.println(i + 1);
+                return;
+            }
+
+        }
+        System.out.println("Такой точки не найдено");
     }
 
     public static void forMe(int a, String str) { // Метод №1 "Знакомство с For"
@@ -278,9 +272,8 @@ public class MainApplication {
     }
 
     public static void arrFillPlus(int b4, int[] arrb4) { // Метод №4 "Заполнение массива арифметической прогрессией"
-        int a = arrb4.length;
 
-        for (int i = 0; i < a - 1; i++) {
+        for (int i = 0; i < arrb4.length - 1; i++) {
             arrb4[i + 1] = arrb4[i] + b4;
         }
         System.out.println(Arrays.toString(arrb4));
@@ -295,11 +288,11 @@ public class MainApplication {
         for (int i = arrb5.length / 2; i < arrb5.length; i++) {
             sum2 += arrb5[i];
         }
-        if (sum1 > sum2)
+        if (sum1 > sum2) {
             System.out.println("Сумма первой половины массива: " + sum1 + " больше суммы второй половины: " + sum2);
-        else if (sum1 < sum2)
+        } else if (sum1 < sum2) {
             System.out.println("Сумма первой половины массива: " + sum1 + " меньше суммы второй половины:" + sum2);
-        else System.out.println("Сумма первой половины массива: " + sum1 + " равна сумме второй половины: " + sum2);
+        } else System.out.println("Сумма первой половины массива: " + sum1 + " равна сумме второй половины: " + sum2);
     }
 
     public static void sumArrays(int[] arra6, int[] arrb6, int[] arrc6) { // Метод №6 "Сложение массивов"
@@ -312,18 +305,15 @@ public class MainApplication {
             }
         }
 
-        int a = arra6.length;// можно было передать длину массивов как аргумент, но в условиях задачи этого не было
-        int b = arrb6.length;
-        int c = arrc6.length;
         int[] sumArr = new int[max];
 
-        for (int i = 0; i < a; i++) {
+        for (int i = 0; i < arra6.length; i++) {
             sumArr[i] = sumArr[i] + arra6[i];
         }
-        for (int i = 0; i < b; i++) {
+        for (int i = 0; i < arrb6.length; i++) {
             sumArr[i] = sumArr[i] + arrb6[i];
         }
-        for (int i = 0; i < c; i++) {
+        for (int i = 0; i < arrc6.length; i++) {
             sumArr[i] = sumArr[i] + arrc6[i];
         }
         System.out.println("Сумма данных массивов:");
