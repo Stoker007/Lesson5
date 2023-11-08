@@ -179,12 +179,11 @@ public class MainApplication {
     }
 
     private static void checkArr(int[] arr8) {// Метод №8 Проверка сортировки массива
-        int a = arr8.length;
         System.out.println("Проверяем массив на сортировку по:\n1 - возрастанию\n2 - убыванию");
         Scanner sc8 = new Scanner(System.in);
         int result = sc8.nextInt();
         if (result == 1) {
-            for (int i = 0; i < a - 1; i++) {
+            for (int i = 0; i < arr8.length - 1; i++) {
                 if (arr8[i + 1] < arr8[i]) {
                     System.out.print("Массив: ");
                     System.out.print(Arrays.toString(arr8));
@@ -199,7 +198,7 @@ public class MainApplication {
         }
 
         if (result == 2) {
-            for (int i = 0; i < a - 1; i++) {
+            for (int i = 0; i < arr8.length - 1; i++) {
                 if (arr8[i + 1] > arr8[i]) {
                     System.out.print("Массив: ");
                     System.out.print(Arrays.toString(arr8));
@@ -218,27 +217,25 @@ public class MainApplication {
 
 
     private static void overturn(int[] arr9) {// Метод №9 Зеркальное отражение массива
-        int a = arr9.length;
-        for (int i = 0; i < a / 2; i++) {
-            int b = a - i - 1;
-            int exchange = arr9[b];
-            arr9[b] = arr9[i];
+        for (int i = 0; i < arr9.length / 2; i++) {
+            int exchange = arr9[arr9.length - i - 1];
+            arr9[arr9.length - i - 1] = arr9[i];
             arr9[i] = exchange;
         }
         System.out.println(Arrays.toString(arr9));
 
     }
 
-    private static void indexArr(int arr[]) {// Метод №7 "Поиск точки равновесия массива"
-        int a = arr.length;
+    private static void indexArr(int[] arr) {// Метод №7 "Поиск точки равновесия массива"
+
         System.out.println(Arrays.toString(arr));
 
         int sum = 0;
-        for (int i = 0; i < a; i++) {
+        for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
         }
         int sum1 = 0;
-        for (int i = 0; i < a - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             sum1 = sum1 + arr[i];
             if (sum1 == sum / 2) {
                 System.out.print("Точка находится между элементами №" + i + " и ");
